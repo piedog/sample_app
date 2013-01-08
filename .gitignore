@@ -18,3 +18,5 @@ doc/
 *~
 .project
 bundler_stubs/
+.rspec
+Gemfile.lock
