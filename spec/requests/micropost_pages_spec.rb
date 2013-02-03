@@ -5,7 +5,7 @@ describe "Micropost pages" do
     subject { page }
 
     let(:user) { FactoryGirl.create(:user) }
-    before { visit root_path }
+    before { sign_in user }
 
     describe "micropost creation" do
         before { visit root_path }
@@ -23,6 +23,7 @@ describe "Micropost pages" do
         end
 
         describe "with valid information" do
+
             before { fill_in 'micropost_content', with: "Lorem ipsum" }
             it "should create a micropost" do
                 expect { click_button "Post" }.to change(Micropost, :count).by(1)
@@ -30,3 +31,15 @@ describe "Micropost pages" do
         end
     end
 end
+#
+#
+# + describe "MicropostPages" do
+# +   describe "GET /micropost_pages" do
+# +     it "works! (now write some real specs)" do
+# +       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+# +       get micropost_pages_index_path
+# +       response.status.should be(200)
+#       end
+# +   end
+#   end
+
